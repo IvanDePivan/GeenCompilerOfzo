@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace GeenCompiler {
     class Program {
         static void Main(string[] args) {
-            Parser.readFile();
+            Parser p = new Parser();
+            p.readFile();
         }
     }
 }
