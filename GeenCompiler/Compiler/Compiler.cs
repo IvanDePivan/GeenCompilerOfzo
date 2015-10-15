@@ -10,8 +10,8 @@ namespace GeenCompiler.Compiler {
         public static NodeLinkedList Compiled;
         public static void compile(LinkedListNode<Token> firstToken) {
             CompiledStatement cs = CompilerFactory.Instance.CreateCompiledStatement(firstToken);
-            Compiled = cs.compile(firstToken);
-            return Compiled;
+            Compiled = cs.compile(ref firstToken);
+            
         }
     }
 }

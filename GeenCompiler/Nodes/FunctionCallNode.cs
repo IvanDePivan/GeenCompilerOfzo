@@ -9,6 +9,8 @@ namespace GeenCompiler.Compiler.Nodes {
         private string name;
         private string left;
         private string right;
-        public FunctionCallNode(string name, string left, string right)
+        public FunctionCallNode(string name, string left, string right) {
+
+        }
     }
 }

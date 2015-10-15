@@ -10,8 +10,8 @@ namespace GeenCompiler.Compiler {
         public NodeLinkedList Compiled;
         public NodeLinkedList compile(ref LinkedListNode<Token> currentToken);
         ActionNode getLastNode();
-        CompiledStatement clone();
-        bool isMatch(LinkedListNode<Token> token);
+        public CompiledStatement clone();
+        public bool isMatch(LinkedListNode<Token> token);
 
         public static string getUniqueId() {
             return Guid.NewGuid().ToString();

@@ -28,22 +28,24 @@ namespace GeenCompiler.Compiler.Compilers {
             string rightName = rightToken.value;
 
             if(leftToken.type != VariableType.Variable) {
-                leftName = base.GetUniqueId();
+                leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
                 Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", leftName));
             }
             // ... hetzelfde voor rightname
 
-            switch(operatorToken.TokenType) {
-                case TokenType.DOUBLE_EQUALS: Compiled.Add(new FunctionCallNode("AreEqual", leftName, rightName));
+            switch(operatorToken.type) {
+                //case VariableType.DOUBLE_EQUALS: Compiled.Add(new FunctionCallNode("AreEqual", leftName, rightName));
                 // etc.
                 default:
                     break;
             }
         }
 
-        public override bool IsMatch(LinkedListNode<Token> currentToken) {
-            return currentToken.Next.Value.TokenType == Tokenizer.TokenType.DOUBLE_EQUALS /*|| etc */;
+        public override bool IsMatch(LinkedListNode<Token> currentToken) { 
+            return false;
+            //TODO: add double equals to the list of possible tokens/nodes etc
+           // return currentToken.Next.Value.type == VariableType.DOUBLE_EQUALS /*|| etc */;
         }
     }    
 }
