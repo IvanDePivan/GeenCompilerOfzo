@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Compiler.Nodes {
-    class Node {
-        private Node prev;
-        private Node next;
+    class ConditionalJumpNode {
     }
 }

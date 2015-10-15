@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeenCompiler.Compiler.Nodes {
-    class AbstractFunctionCall : Node {
+namespace GeenCompiler.Compiler.Compilers {
+    class CompiledWhile {
     }
 }

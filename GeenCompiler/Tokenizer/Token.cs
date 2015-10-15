@@ -9,7 +9,7 @@ namespace GeenCompiler
 {
     class Token
     {
-        public TokenType type;
+        public VariableType type;
         public String value;
         public int lineNumber;
         public int colNumber;

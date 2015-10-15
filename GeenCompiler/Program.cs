@@ -20,7 +20,10 @@ namespace GeenCompiler {
 
             if(list.Count > 0) {
                 foreach(Token token in list) {
-                    Console.WriteLine("Token: " + token.value);
+                    Console.Write(token.value + " ");
+                    if(token.value == "{" || token.value == ";") {
+                        Console.Write("\n");
+                    }
                 }
             }
 

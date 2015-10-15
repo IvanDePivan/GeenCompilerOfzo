@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Compiler.Nodes {
-    class DoNothing : Node{
+    class JumpNode : ActionNode{
     }
 }

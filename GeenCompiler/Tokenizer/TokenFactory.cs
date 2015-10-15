@@ -19,7 +19,7 @@ namespace GeenCompiler.Tokens {
             
         }
 
-        public Token create(string line){
+        public LinkedListNode<Token> create(string line) {
             Token token = null;
              // Only remembered per line right now
             foreach(RecognizeTokenStrategy strategy in tokenRecognizer) {
@@ -30,7 +30,7 @@ namespace GeenCompiler.Tokens {
                 }
             }
             
-            return token;
+            return new LinkedListNode<Token>(token);
         }
     }
 }
