@@ -9,7 +9,7 @@ using GeenCompiler.Tokens;
 namespace GeenCompiler.Compiler.Compilers {
     class CompiledPlus : CompiledStatement {
 
-        public NodeLinkedList compile(ref LinkedListNode<Token> currentToken) {
+        public override NodeLinkedList compile(ref LinkedListNode<Token> currentToken) {
             Token leftToken = currentToken.Value;
             string leftName = leftToken.value;
             Token rightToken = currentToken.Next.Next.Value;
@@ -40,11 +40,11 @@ namespace GeenCompiler.Compiler.Compilers {
             return Compiled;
         }
 
-        public override CompiledStatement Clone() {
+        public override CompiledStatement clone() {
             return new CompiledPlus();
         }
 
-        public override bool IsMatch(LinkedListNode<Token> currentToken) {
+        public override bool isMatch(LinkedListNode<Token> currentToken) {
             // matched if current is a variable or number, next is a plus en third is also a number or variable.
             return (currentToken.Value.type == VariableType.Variable || currentToken.Value.type == VariableType.Number)
                 && currentToken.Next.Value.type == VariableType.Add

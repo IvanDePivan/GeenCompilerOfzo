@@ -7,7 +7,7 @@ using GeenCompiler.Tokens;
 
 namespace GeenCompiler
 {
-    class Token
+    public class Token
     {
         public VariableType type;
         public String value;
@@ -15,6 +15,5 @@ namespace GeenCompiler
         public int colNumber;
         public Token partner;
         public int level;
-        public Token nextToken;
     }
 }

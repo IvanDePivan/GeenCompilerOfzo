@@ -4,14 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GeenCompiler.Compiler.Compilers;
+using GeenCompiler.Compiler.Nodes;
 
 namespace GeenCompiler.Compiler {
-    class Compiler {
+    public class TheCompiler {
         public static NodeLinkedList Compiled;
         public static void compile(LinkedListNode<Token> firstToken) {
             CompiledStatement cs = CompilerFactory.Instance.CreateCompiledStatement(firstToken);
             Compiled = cs.compile(ref firstToken);
-            
+
+            ActionNode a = Compiled.First;
+            while (a != null)
+            {
+                Console.WriteLine(a.GetType());
+                a = a.Next;
+            }
         }
     }
 }

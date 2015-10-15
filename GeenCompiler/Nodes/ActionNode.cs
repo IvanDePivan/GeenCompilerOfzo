@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GeenCompiler.Virtual_Machine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Compiler.Nodes {
-    abstract class ActionNode {
+    public abstract class ActionNode {
         private ActionNode prev;
         public ActionNode Prev {
             get { return prev; }
@@ -17,7 +18,7 @@ namespace GeenCompiler.Compiler.Nodes {
             set { next = value; }
         }
 
-        void accept(NodeVisitor visitor);
+        public abstract void accept(NodeVisitor visitor);
         
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GeenCompiler.Compiler.Nodes;
 
 namespace GeenCompiler.Compiler {
-    class NodeLinkedList {
+    public class NodeLinkedList {
         private ActionNode first;
         public ActionNode First {
             get { return first; }
@@ -17,10 +17,19 @@ namespace GeenCompiler.Compiler {
             get { return last; }
             private set { last = value; }
         }
+        public NodeLinkedList()
+        {
+            last = new DoNothingNode();
+            first = new DoNothingNode();
+            first.Next = last;
+            last.Prev = first;
+        }
         public void Add(ActionNode node) {
-            last.Next = node;
-            node.Prev = last;
-            last = node;
+            ActionNode foreLast = last.Prev;
+            last.Prev = node;
+            node.Next = last;
+            foreLast.Next = node;
+            node.Prev = foreLast;
         }
 
         public void Add(NodeLinkedList nll) {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Tokens {
-    enum VariableType {
+    public enum VariableType {
         If,
         Else,
         ElseIf,

@@ -15,7 +15,10 @@ namespace GeenCompiler.Compiler.Compilers {
                 }
                 return instance;
             }
-            private set;
+            private set
+            {
+                instance = value;
+            }
         }
         private CompilerFactory() {
             _compilers = new List<CompiledStatement>();

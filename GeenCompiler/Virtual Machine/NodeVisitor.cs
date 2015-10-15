@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Virtual_Machine {
-    class NodeVisitor {
+    public class NodeVisitor {
         public void visit(PlusCommand command) {
             //Doe iets hiermee
         }
+
     }
 }

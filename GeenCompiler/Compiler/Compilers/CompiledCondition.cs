@@ -7,7 +7,7 @@ using GeenCompiler.Compiler.Nodes;
 using GeenCompiler.Tokens;
 
 namespace GeenCompiler.Compiler.Compilers {
-    public class CompiledCondition : CompiledStatement {
+   /* public class CompiledCondition : CompiledStatement {
         public override CompiledStatement Clone() {
             return new CompiledCondition();
         }
@@ -45,7 +45,7 @@ namespace GeenCompiler.Compiler.Compilers {
         public override bool IsMatch(LinkedListNode<Token> currentToken) { 
             return false;
             //TODO: add double equals to the list of possible tokens/nodes etc
-           // return currentToken.Next.Value.type == VariableType.DOUBLE_EQUALS /*|| etc */;
+           // return currentToken.Next.Value.type == VariableType.DOUBLE_EQUALS ;
         }
-    }    
+    }    */
 }

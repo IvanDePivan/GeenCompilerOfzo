@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace GeenCompiler.Tokens {
     class Tokenizer {
         private static TokenFactory tokenFactory = new TokenFactory();
-        public static LinkedList<LinkedListNode<Token>> tokenize(string[] strings) {
-            LinkedList<LinkedListNode<Token>> tokens = new LinkedList<LinkedListNode<Token>>();
+        public static LinkedList<Token> tokenize(string[] strings) {
+            LinkedList<Token> tokens = new LinkedList<Token>();
             int currentLine = 0;
             foreach(string line in strings) {
                 int currentCol = 0;
