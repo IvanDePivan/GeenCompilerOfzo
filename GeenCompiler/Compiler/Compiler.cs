@@ -9,7 +9,7 @@ using GeenCompiler.Compiler.Nodes;
 namespace GeenCompiler.Compiler {
     public class TheCompiler {
         public static NodeLinkedList Compiled;
-        public static void compile(LinkedListNode<Token> firstToken) {
+        public static NodeLinkedList compile(LinkedListNode<Token> firstToken) {
             CompiledStatement cs = CompilerFactory.Instance.CreateCompiledStatement(firstToken);
             Compiled = cs.compile(ref firstToken);
 
@@ -19,6 +19,7 @@ namespace GeenCompiler.Compiler {
                 Console.WriteLine(a.GetType());
                 a = a.Next;
             }
+            return Compiled;
         }
     }
 }

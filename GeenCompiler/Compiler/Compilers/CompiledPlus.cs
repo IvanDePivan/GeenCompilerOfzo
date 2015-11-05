@@ -20,15 +20,15 @@ namespace GeenCompiler.Compiler.Compilers {
             //Temp variable for left
             if(leftToken.type == VariableType.Number) {
                 leftName = CompiledStatement.getUniqueId();
-                Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
-                Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", leftName));
+                Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, leftToken));
+                Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.RETURNTOVARIABLE, leftName));
             } 
 
             //Temp variable for right
             if(rightToken.type == VariableType.Number) {
                 rightName = CompiledStatement.getUniqueId();
-                Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", rightToken.value));
-                Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", rightName));
+                Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, rightToken));
+                Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.RETURNTOVARIABLE, rightName));
             } 
             currentToken = currentToken.Next;
 
