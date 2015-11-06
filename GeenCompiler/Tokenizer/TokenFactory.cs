@@ -13,6 +13,7 @@ namespace GeenCompiler.Tokens {
             tokenRecognizer.Add(new RecognizeIfToken());
             tokenRecognizer.Add(new RecognizeAssignToken());
             tokenRecognizer.Add(new RecognizeBinaryPlusToken());
+            tokenRecognizer.Add(new RecognizeConditionToken());
             tokenRecognizer.Add(new RecognizeNumberToken());
             tokenRecognizer.Add(new RecognizeEndstatementToken());
             tokenRecognizer.Add(new RecognizeVariableToken()); // MUST BE LAST

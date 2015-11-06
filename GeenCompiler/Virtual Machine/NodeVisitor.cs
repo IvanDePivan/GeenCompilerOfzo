@@ -50,5 +50,9 @@ namespace GeenCompiler.Virtual_Machine {
             //throw new NotImplementedException();
         }
 
+
+        public void visit(JumpNode jumpNode) {
+            //devolgendenode = jumpNode.jump;
+        }
     }
 }
