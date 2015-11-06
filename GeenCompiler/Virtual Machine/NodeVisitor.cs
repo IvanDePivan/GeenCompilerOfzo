@@ -16,7 +16,10 @@ namespace GeenCompiler.Virtual_Machine {
         {
             this.vm = vm;
             commands = new List<BaseCommand>();
+            commands.Add(new MinCommand());
             commands.Add(new PlusCommand());
+            commands.Add(new DivideCommand());
+            commands.Add(new MultiplyCommand());
         }
         public void visit(DirectFunctionCallNode dfcn)
         {

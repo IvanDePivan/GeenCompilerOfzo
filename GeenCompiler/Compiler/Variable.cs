@@ -23,5 +23,11 @@ namespace GeenCompiler.Compiler
             this.Type = VariableType.Variable;
             Value = value;
         }
+
+        public Variable(VariableType vt, string value)
+        {
+            this.Type = vt;
+            this.Value = value;
+        }
     }
 }
