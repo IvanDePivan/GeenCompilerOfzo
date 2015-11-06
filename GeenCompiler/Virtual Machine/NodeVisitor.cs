@@ -53,5 +53,9 @@ namespace GeenCompiler.Virtual_Machine {
             }
         }
 
+
+        public void visit(JumpNode jumpNode) {
+            //devolgendenode = jumpNode.jump;
+        }
     }
 }

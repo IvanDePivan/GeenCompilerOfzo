@@ -63,6 +63,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tokenizer\CompilerException.cs" />
+    <Compile Include="Tokenizer\InvalidTokenException.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeAssignToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMultiplyToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryDivideToken.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizePrintToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeConditionToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeEndstatementToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeIfToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeNumberToken.cs" />

@@ -19,7 +19,7 @@ namespace GeenCompiler.Tokens {
                     LinkedListNode<Token> token = null;
                     try {
                         token = tokenFactory.create(line.Substring(currentCol));
-                    } catch(Exception e) {
+                    } catch(InvalidTokenException e) {
                         errors.Push("L: [" + (currentLine) + "] C: [" + (currentCol + 1) + "] " + e.Message);
                     }
 

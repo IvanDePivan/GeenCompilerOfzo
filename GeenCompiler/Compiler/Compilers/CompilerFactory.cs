@@ -28,7 +28,7 @@ namespace GeenCompiler.Compiler.Compilers {
             _compilers.Add(new CompiledMultiply());
             _compilers.Add(new CompiledAssignment());
             _compilers.Add(new CompiledPrint());
-//             _compilers.Add(new CompiledCondition());
+            _compilers.Add(new CompiledCondition());
         }
 
         public CompiledStatement CreateCompiledStatement(LinkedListNode<Token> currentToken) {
