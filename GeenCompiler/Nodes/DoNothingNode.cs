@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeenCompiler.Compiler.Nodes {
-    class DoNothingNode : ActionNode{
+    public class DoNothingNode : ActionNode{
         public override void accept(Virtual_Machine.NodeVisitor visitor)
         {
             //MAAKT NIET UIT HIJ DOET TOCH NIKS

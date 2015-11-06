@@ -42,13 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compiler\Compiler.cs" />
+    <Compile Include="Compiler\Compilers\CompiledAssignment.cs" />
     <Compile Include="Compiler\Compilers\CompiledCondition.cs" />
     <Compile Include="Compiler\Compilers\CompiledStatement.cs" />
     <Compile Include="Compiler\Compilers\CompiledWhile.cs" />
     <Compile Include="Compiler\Compilers\CompilerFactory.cs" />
     <Compile Include="Compiler\Compilers\CompiledPlus.cs" />
     <Compile Include="Compiler\NodeLinkedList.cs" />
-    <Compile Include="Nodes\AbstractFunctionCallNode.cs" />
     <Compile Include="Nodes\ConditionalJumpNode.cs" />
     <Compile Include="Nodes\DirectFunctionCallNode.cs" />
     <Compile Include="Nodes\DoNothingNode.cs" />
@@ -69,10 +69,10 @@
     <Compile Include="Tokenizer\TokenFactory.cs" />
     <Compile Include="Tokenizer\Tokenizer.cs" />
     <Compile Include="Tokenizer\VariableType.cs" />
+    <Compile Include="Compiler\Variable.cs" />
     <Compile Include="Virtual Machine\BaseCommand.cs" />
     <Compile Include="Virtual Machine\NodeVisitor.cs" />
-    <Compile Include="Virtual Machine\PlusCommand.cs" />
-    <Compile Include="Virtual Machine\ReturnToVariableCommand.cs" />
+    <Compile Include="Virtual Machine\commands\PlusCommand.cs" />
     <Compile Include="Virtual Machine\VirtualMachine.cs" />
   </ItemGroup>
   <ItemGroup>

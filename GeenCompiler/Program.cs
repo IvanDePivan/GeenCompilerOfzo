@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GeenCompiler.Tokens;
 using GeenCompiler.Compiler;
+using GeenCompiler.Virtual_Machine;
 
 namespace GeenCompiler {
     class Program {
@@ -34,7 +35,10 @@ namespace GeenCompiler {
             }
 
 
-            TheCompiler.compile(list.First);
+            NodeLinkedList nll = TheCompiler.compile(list.First);
+
+            VirtualMachine vm = new VirtualMachine();
+            vm.Run(nll);
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
