@@ -10,7 +10,7 @@ namespace GeenCompiler.Virtual_Machine {
     public class VirtualMachine {
         public void Run(NodeLinkedList list) {
             ActionNode currentNode = list.First;
-
+            
             while(currentNode != null) {
                 // Doe iets met de huidige node: 
                 //          Command pattern

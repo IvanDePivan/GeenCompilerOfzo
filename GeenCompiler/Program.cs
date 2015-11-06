@@ -8,15 +8,18 @@ using GeenCompiler.Compiler;
 
 namespace GeenCompiler {
     class Program {
+        private static Stack<string> errors = new Stack<string>(); 
         static void Main(string[] args) {
             Parser p = new Parser();
             string[] codeLines = p.readFile("code.ivaron"); //Read code
-            //LinkedList<Token> list = new LinkedList<Token>();
             LinkedList<Token> list = new LinkedList<Token>();
             try {
                 list = Tokenizer.tokenize(codeLines); //Tokenize code
-            } catch(Exception e) {
-                Console.WriteLine(e.Message);
+            } catch(CompilerException e) {
+                foreach (string error in e.Errors)
+	            {
+                    Console.WriteLine(error);
+	            }
             }
 
             if(list.Count > 0) {

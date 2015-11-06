@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace GeenCompiler.Tokens {
     class Tokenizer {
         private static TokenFactory tokenFactory = new TokenFactory();
+        private static Stack<string> errors = new Stack<string>();
         public static LinkedList<Token> tokenize(string[] strings) {
             LinkedList<Token> tokens = new LinkedList<Token>();
             int currentLine = 0;
@@ -15,12 +16,14 @@ namespace GeenCompiler.Tokens {
                 while(currentCol < line.Length) {
                     //We pass the line to the factory
                     //The factory checks if the token matches any strategy.
-                    LinkedListNode<Token> token = tokenFactory.create(line.Substring(currentCol));
+                    LinkedListNode<Token> token = null;
+                    try {
+                        token = tokenFactory.create(line.Substring(currentCol));
+                    } catch(Exception e) {
+                        errors.Push("L: [" + (currentLine) + "] C: [" + (currentCol + 1) + "] " + e.Message);
+                    }
 
-                    if(token == null) {
-                        throw new NullReferenceException("Could not identify code! line: " + (currentLine + 1) + ", col: " + (currentCol + 1) + "\n" + 
-                                                            line[currentLine]);
-                    } else {
+                    if(token != null) {
                         token.Value.lineNumber = currentLine;
                         token.Value.colNumber = currentCol;
                         tokens.AddLast(token);
@@ -30,6 +33,9 @@ namespace GeenCompiler.Tokens {
                     }
                 }
                 currentLine++;
+            }
+            if(errors.Count > 0) {
+                throw new CompilerException(errors);
             }
             return tokens;
         }

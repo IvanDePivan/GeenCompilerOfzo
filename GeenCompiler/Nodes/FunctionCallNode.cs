@@ -10,7 +10,9 @@ namespace GeenCompiler.Compiler.Nodes {
         private string left;
         private string right;
         public FunctionCallNode(string name, string left, string right) {
-
+            this.name = name;
+            this.left = left;
+            this.right = right;
         }
     }
 }
