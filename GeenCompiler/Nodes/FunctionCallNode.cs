@@ -34,7 +34,16 @@ namespace GeenCompiler.Compiler.Nodes {
             this.left = left;
             this.right = right;
         }
+        public FunctionCallNode(string name, string left)
+        {
+            this.name = name;
+            this.left = left;
+        }
 
+        public FunctionCallNode(string name)
+        {
+            this.name = name;
+        }
         public override void accept(Virtual_Machine.NodeVisitor visitor)
         {
             visitor.visit(this);

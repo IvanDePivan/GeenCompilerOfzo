@@ -44,6 +44,7 @@
     <Compile Include="Compiler\Compiler.cs" />
     <Compile Include="Compiler\Compilers\CompiledAssignment.cs" />
     <Compile Include="Compiler\Compilers\CompiledCondition.cs" />
+    <Compile Include="Compiler\Compilers\CompiledPrint.cs" />
     <Compile Include="Compiler\Compilers\CompiledMin.cs" />
     <Compile Include="Compiler\Compilers\CompiledDivide.cs" />
     <Compile Include="Compiler\Compilers\CompiledMultiply.cs" />
@@ -67,6 +68,9 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMultiplyToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryDivideToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMinToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisCloseToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisOpenToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizePrintToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeConditionToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeEndstatementToken.cs" />
@@ -84,6 +88,7 @@
     <Compile Include="Virtual Machine\commands\DivideCommand.cs" />
     <Compile Include="Virtual Machine\commands\MultiplyCommand.cs" />
     <Compile Include="Virtual Machine\commands\MinCommand.cs" />
+    <Compile Include="Virtual Machine\commands\PrintCommand.cs" />
     <Compile Include="Virtual Machine\NodeVisitor.cs" />
     <Compile Include="Virtual Machine\commands\PlusCommand.cs" />
     <Compile Include="Virtual Machine\VirtualMachine.cs" />

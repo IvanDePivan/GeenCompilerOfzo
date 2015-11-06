@@ -24,6 +24,9 @@ namespace GeenCompiler.Tokens {
         Number,
         Variable,
         Endstatement,
-        Boolean
+        Boolean,
+        Print,
+        ParenthesisOpen,
+        ParenthesisClose
     }
 }
