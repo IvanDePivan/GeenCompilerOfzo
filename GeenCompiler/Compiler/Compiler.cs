@@ -12,7 +12,12 @@ namespace GeenCompiler.Compiler {
         public static NodeLinkedList compile(LinkedListNode<Token> firstToken) {
             CompiledStatement cs = CompilerFactory.Instance.CreateCompiledStatement(firstToken);
             Compiled = cs.compile(ref firstToken);
-
+            while (firstToken != null)
+            {
+                cs = CompilerFactory.Instance.CreateCompiledStatement(firstToken);
+                NodeLinkedList nll = cs.compile(ref firstToken);
+                Compiled.Add(nll);
+            }
             ActionNode a = Compiled.First;
             while (a != null)
             {

@@ -23,7 +23,7 @@ namespace GeenCompiler.Compiler.Compilers {
         private CompilerFactory() {
             _compilers = new List<CompiledStatement>();
             _compilers.Add(new CompiledPlus());
-//             _compilers.Add(new CompiledAssignment());
+            _compilers.Add(new CompiledAssignment());
 //             _compilers.Add(new CompiledCondition());
         }
 

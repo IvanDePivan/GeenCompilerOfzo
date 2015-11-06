@@ -8,6 +8,7 @@ namespace GeenCompiler.Compiler.Nodes {
     public class DirectFunctionCallNode : ActionNode{
         public static string CONSTANTTORETURN = "ConstantToReturn";
         public static string RETURNTOVARIABLE = "ReturnToVariable";
+        public static string VARIABLETORETURN = "VariableToReturn";
         private string name;
         private Variable value;
         public string Name

@@ -24,6 +24,8 @@ namespace GeenCompiler.Virtual_Machine {
                 vm.Return = dfcn.Value;
             else if (dfcn.Name == DirectFunctionCallNode.RETURNTOVARIABLE)
                 vm.setVariable(dfcn.Value.Value, vm.Return);
+            else if (dfcn.Name == DirectFunctionCallNode.VARIABLETORETURN)
+                vm.Return = vm.getVariable(dfcn.Value.Value);
         }
 
         public void visit(DoNothingNode dnn)
