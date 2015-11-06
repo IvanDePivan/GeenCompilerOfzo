@@ -70,7 +70,7 @@
     <Compile Include="Tokenizer\Tokenizer.cs" />
     <Compile Include="Tokenizer\VariableType.cs" />
     <Compile Include="Compiler\Variable.cs" />
-    <Compile Include="Virtual Machine\BaseCommand.cs" />
+    <Compile Include="Virtual Machine\commands\BaseCommand.cs" />
     <Compile Include="Virtual Machine\NodeVisitor.cs" />
     <Compile Include="Virtual Machine\commands\PlusCommand.cs" />
     <Compile Include="Virtual Machine\VirtualMachine.cs" />
