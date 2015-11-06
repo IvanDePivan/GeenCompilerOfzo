@@ -68,7 +68,9 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMultiplyToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryDivideToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMinToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketCloseToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisCloseToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizePrintToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />

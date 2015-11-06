@@ -10,6 +10,7 @@ namespace GeenCompiler.Tokens {
         private static Stack<string> errors = new Stack<string>();
         public static LinkedList<Token> tokenize(string[] strings) {
             LinkedList<Token> tokens = new LinkedList<Token>();
+            Stack<Token> levelStack = new Stack<Token>();
             int currentLine = 0;
             foreach(string line in strings) {
                 int currentCol = 0;
@@ -30,6 +31,41 @@ namespace GeenCompiler.Tokens {
 
                         //move ahead the number of characters are in this token
                         currentCol += token.Value.value.Length;
+                        switch (token.Value.type)
+                        {
+                            case VariableType.BracketOpen:
+                                levelStack.Push(token.Value);
+                                break;
+                            case VariableType.BracketClose:
+                                {
+                                    Token t = levelStack.Pop();
+                                    if (t.type != VariableType.BracketOpen)
+                                        errors.Push("unexpected " + token.Value.value + "on line " + token.Value.lineNumber);
+                                    else
+                                    {
+                                        t.partner = token.Value;
+                                        token.Value.partner = t;
+                                    }
+                                    break;
+                                }
+                                
+                            case VariableType.ParenthesisOpen:
+                                levelStack.Push(token.Value);
+                                break;
+                            case VariableType.ParenthesisClose:
+                                {
+                                    Token t = levelStack.Pop();
+                                    if (t.type != VariableType.ParenthesisOpen)
+                                        errors.Push("unexpected " + token.Value.value + "on line " + token.Value.lineNumber);
+                                    else
+                                    {
+                                        t.partner = token.Value;
+                                        token.Value.partner = t;
+                                    }
+                                    break;
+                                }  
+                        }
+                        token.Value.level = levelStack.Count;
                     }
                 }
                 currentLine++;

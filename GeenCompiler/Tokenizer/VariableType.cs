@@ -26,6 +26,8 @@ namespace GeenCompiler.Tokens {
         Endstatement,
         Print,
         ParenthesisOpen,
-        ParenthesisClose
+        ParenthesisClose,
+        BracketOpen,
+        BracketClose
     }
 }
