@@ -86,6 +86,7 @@
     <Compile Include="Tokenizer\VariableType.cs" />
     <Compile Include="Compiler\Variable.cs" />
     <Compile Include="Virtual Machine\commands\BaseCommand.cs" />
+    <Compile Include="Virtual Machine\commands\CompareCommand.cs" />
     <Compile Include="Virtual Machine\commands\DivideCommand.cs" />
     <Compile Include="Virtual Machine\commands\MultiplyCommand.cs" />
     <Compile Include="Virtual Machine\commands\MinCommand.cs" />
