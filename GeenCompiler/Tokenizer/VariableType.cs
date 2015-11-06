@@ -23,6 +23,7 @@ namespace GeenCompiler.Tokens {
         Or,
         Number,
         Variable,
-        Endstatement
+        Endstatement,
+        Boolean
     }
 }

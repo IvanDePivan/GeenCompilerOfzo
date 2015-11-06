@@ -10,7 +10,6 @@ namespace GeenCompiler.Compiler.Compilers {
     public class CompiledCondition : CompiledStatement {
 
         public override NodeLinkedList compile(ref LinkedListNode<Token> currentToken) {
-
             Token leftToken = currentToken.Value;
             string leftName = leftToken.value;
             currentToken = currentToken.Next;
@@ -19,15 +18,16 @@ namespace GeenCompiler.Compiler.Compilers {
             Token rightToken = currentToken.Value;
             string rightName = rightToken.value;
 
-            if(leftToken.type != VariableType.Variable || leftToken.type != VariableType.Number) {
+            if(leftToken.type == VariableType.Number) {
                 leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
                 Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", leftName));
             }
-            if(rightToken.type != VariableType.Variable || rightToken.type != VariableType.Number) {
+            
+            if(rightToken.type == VariableType.Number) {
                 rightName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
-                Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", leftName));
+                Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", rightName));
             }
 
             switch(operatorToken.type) {
@@ -49,7 +49,8 @@ namespace GeenCompiler.Compiler.Compilers {
                 default:
                     break;
             }
-            return null;
+            currentToken = currentToken.Next.Next;
+            return Compiled;
         }
 
         public override bool isMatch(LinkedListNode<Token> currentToken) {

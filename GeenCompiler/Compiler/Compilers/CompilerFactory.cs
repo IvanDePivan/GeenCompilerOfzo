@@ -37,7 +37,7 @@ namespace GeenCompiler.Compiler.Compilers {
                 }
             }
 
-            throw new Exception("Could not identify token: " + currentToken.Value);
+            throw new Exception("Could not identify token: " + currentToken.Value.value);
         }
     }
 }

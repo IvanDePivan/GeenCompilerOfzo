@@ -37,8 +37,8 @@ namespace GeenCompiler {
             
             NodeLinkedList nll = TheCompiler.compile(list.First);
 
-            //VirtualMachine vm = new VirtualMachine();
-            //vm.Run(nll);
+            VirtualMachine vm = new VirtualMachine();
+            vm.Run(nll);
              
             // Keep the console window open in debug mode.
             Console.WriteLine("Press return key to exit.");
