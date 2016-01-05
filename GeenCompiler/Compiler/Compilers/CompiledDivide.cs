@@ -46,9 +46,13 @@ namespace GeenCompiler.Compiler.Compilers {
 
         public override bool isMatch(LinkedListNode<Token> currentToken) {
             // matched if current is a variable or number, next is a plus en third is also a number or variable.
-            return (currentToken.Value.type == VariableType.Variable || currentToken.Value.type == VariableType.Number)
-                && currentToken.Next.Value.type == VariableType.Divide
-                && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+            if(currentToken.Next != null) {
+                return (currentToken.Value.type == VariableType.Variable || currentToken.Value.type == VariableType.Number)
+                    && currentToken.Next.Value.type == VariableType.Divide
+                    && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+            } else {
+                return false;
+            }
         }
     }
 }

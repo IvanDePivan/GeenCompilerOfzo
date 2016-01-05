@@ -52,9 +52,13 @@ namespace GeenCompiler.Compiler.Compilers
 
         public override bool isMatch(LinkedListNode<Token> currentToken)
         {
-            return (currentToken.Value.type == VariableType.Variable)
-                && currentToken.Next.Value.type == VariableType.Assign
-                && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+            if(currentToken.Next != null) {
+                return (currentToken.Value.type == VariableType.Variable)
+                    && currentToken.Next.Value.type == VariableType.Assign
+                    && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+            } else {
+                return false;
+            }
         }
     }
 }

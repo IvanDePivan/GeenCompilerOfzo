@@ -54,9 +54,14 @@ namespace GeenCompiler.Compiler.Compilers {
         }
 
         public override bool isMatch(LinkedListNode<Token> currentToken) {
-            return (currentToken.Next.Value.type == VariableType.LargerOrEqualThan || currentToken.Next.Value.type == VariableType.Largerthan ||
-                 currentToken.Next.Value.type == VariableType.SmallerOrEqualThan || currentToken.Next.Value.type == VariableType.SmallerThan ||
-                 currentToken.Next.Value.type == VariableType.Equals);
+            if(currentToken.Next != null) {
+                return (currentToken.Next.Value.type == VariableType.LargerOrEqualThan || currentToken.Next.Value.type == VariableType.Largerthan ||
+                     currentToken.Next.Value.type == VariableType.SmallerOrEqualThan || currentToken.Next.Value.type == VariableType.SmallerThan ||
+                     currentToken.Next.Value.type == VariableType.Equals);
+            } else {
+                return false;
+            }
+
         }
 
         public override CompiledStatement clone() {
