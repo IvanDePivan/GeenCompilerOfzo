@@ -11,7 +11,7 @@ namespace GeenCompiler.Tokens {
             Token token = null;
             if(name.Length >= 5 && name.Substring(0, 5) == "print"){
                 token = new Token();
-                token.type = VariableType.Print;
+                token.type = TokenType.Print;
                 token.value = "Print";
             }
             return token;

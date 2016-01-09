@@ -13,23 +13,23 @@ namespace GeenCompiler.Tokens {
                 token = new Token();
 
                 if(name[1] == '=') {
-                    token.type = VariableType.SmallerOrEqualThan;
+                    token.type = TokenType.SmallerOrEqualThan;
                 } else {
-                    token.type = VariableType.SmallerThan;
+                    token.type = TokenType.SmallerThan;
                 }
 
             } else if(name[0] == '>') {
                 token = new Token();
                 if(name[1] == '=') {
-                    token.type = VariableType.LargerOrEqualThan;
+                    token.type = TokenType.LargerOrEqualThan;
                 } else {
-                    token.type = VariableType.Largerthan;
+                    token.type = TokenType.Largerthan;
                 }
 
             } else if(name[0] == '=') {
                 if(name[1] == '=') {
                     token = new Token();
-                    token.type = VariableType.Equals;
+                    token.type = TokenType.Equals;
                 } 
             }
             if(token != null) {

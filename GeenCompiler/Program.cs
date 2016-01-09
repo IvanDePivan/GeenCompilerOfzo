@@ -34,6 +34,17 @@ namespace GeenCompiler {
                 }
             }
 
+            if(list.Count > 0) {
+                LinkedListNode<Token> token = list.First;
+                while(token != null) {
+                    Console.Write(token.Value.type + " ");
+                    if(token.Value.value == "{" || token.Value.value == ";") {
+                        Console.Write("\n");
+                    }
+                    token = token.Next;
+                }
+            }
+
             
             NodeLinkedList nll = TheCompiler.compile(list.First);
 

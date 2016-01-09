@@ -16,7 +16,7 @@ namespace GeenCompiler.Tokens {
             Match m = alphanumeric.Match(name);
             if(m.Success) { //Only matches the first set of characters up to something that isn't alphanumeric
                 token = new Token();
-                token.type = VariableType.Variable;
+                token.type = TokenType.Variable;
                 token.value = m.Value;
             }
             return token;

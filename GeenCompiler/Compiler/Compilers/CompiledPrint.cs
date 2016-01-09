@@ -22,13 +22,12 @@ namespace GeenCompiler.Compiler.Compilers {
                 NodeLinkedList nll = cs.compile(ref currentToken);
                 Compiled.Add(nll);
             }
-            catch (Exception e)
+            catch 
             {
-                if(valueToken.type == VariableType.Number) {
+                if(valueToken.type == TokenType.Number) {
                     Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, valueToken));
 
-                }
-                else if(valueToken.type == VariableType.Variable)
+                } else if(valueToken.type == TokenType.Variable)
                 {
                     Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.VARIABLETORETURN, valueName));
                 }
@@ -47,8 +46,8 @@ namespace GeenCompiler.Compiler.Compilers {
 
         public override bool isMatch(LinkedListNode<Token> currentToken) {
             // matched if current is a variable or number, next is a plus en third is also a number or variable.
-            return currentToken.Value.type == VariableType.Print
-                && currentToken.Next.Value.type == VariableType.ParenthesisOpen;
+            return currentToken.Value.type == TokenType.Print
+                && currentToken.Next.Value.type == TokenType.ParenthesisOpen;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GeenCompiler.Tokens {
             Token token = null;
             if(name[0] == ')'){
                 token = new Token();
-                token.type = VariableType.ParenthesisClose;
+                token.type = TokenType.ParenthesisClose;
                 token.value = ")";
             }
             return token;

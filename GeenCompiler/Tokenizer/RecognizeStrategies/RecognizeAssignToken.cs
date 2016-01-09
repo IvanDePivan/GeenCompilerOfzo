@@ -13,7 +13,7 @@ namespace GeenCompiler.Tokens {
             // There is no need for checking !=, +=, >= etc 
             if(name[0] == '=' && name[1] != '=') { //assigment is an = except for ==
                 token = new Token();
-                token.type = VariableType.Assign;
+                token.type = TokenType.Assign;
                 token.value = name.Substring(0, 1);
             }
             return token;

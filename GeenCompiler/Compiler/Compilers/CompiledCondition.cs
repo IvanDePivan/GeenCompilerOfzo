@@ -18,46 +18,46 @@ namespace GeenCompiler.Compiler.Compilers {
             Token rightToken = currentToken.Value;
             string rightName = rightToken.value;
 
-            if(leftToken.type == VariableType.Number) {
+            if(leftToken.type == TokenType.Number) {
                 leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
                 Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", leftName));
             }
-            
-            if(rightToken.type == VariableType.Number) {
+
+            if(rightToken.type == TokenType.Number) {
                 rightName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
                 Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", rightName));
             }
 
             switch(operatorToken.type) {
-                case VariableType.Equals: 
+                case TokenType.Equals: 
                     Compiled.Add(new FunctionCallNode("AreEqual", leftName, rightName));
                     break;
-                case VariableType.SmallerThan: 
+                case TokenType.SmallerThan: 
                     Compiled.Add(new FunctionCallNode("IsSmaller", leftName, rightName));
                     break;
-                case VariableType.Largerthan: 
+                case TokenType.Largerthan: 
                     Compiled.Add(new FunctionCallNode("IsLarger", leftName, rightName));
                     break;
-                case VariableType.SmallerOrEqualThan: 
+                case TokenType.SmallerOrEqualThan: 
                     Compiled.Add(new FunctionCallNode("IsSmallerOrEqual", leftName, rightName));
                     break;
-                case VariableType.LargerOrEqualThan: 
+                case TokenType.LargerOrEqualThan: 
                     Compiled.Add(new FunctionCallNode("IsLargerOrEqual", leftName, rightName));
                     break;
                 default:
                     break;
             }
-            currentToken = currentToken.Next.Next;
+            currentToken = currentToken.Next;
             return Compiled;
         }
 
         public override bool isMatch(LinkedListNode<Token> currentToken) {
             if(currentToken.Next != null) {
-                return (currentToken.Next.Value.type == VariableType.LargerOrEqualThan || currentToken.Next.Value.type == VariableType.Largerthan ||
-                     currentToken.Next.Value.type == VariableType.SmallerOrEqualThan || currentToken.Next.Value.type == VariableType.SmallerThan ||
-                     currentToken.Next.Value.type == VariableType.Equals);
+                return (currentToken.Next.Value.type == TokenType.LargerOrEqualThan || currentToken.Next.Value.type == TokenType.Largerthan ||
+                     currentToken.Next.Value.type == TokenType.SmallerOrEqualThan || currentToken.Next.Value.type == TokenType.SmallerThan ||
+                     currentToken.Next.Value.type == TokenType.Equals);
             } else {
                 return false;
             }

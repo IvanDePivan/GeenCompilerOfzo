@@ -13,7 +13,7 @@ namespace GeenCompiler.Tokens {
             Match m = numberRegex.Match(name);
             if(m.Success) {
                 token = new Token();
-                token.type = VariableType.Number;
+                token.type = TokenType.Number;
                 token.value = m.Value;
             }
             return token;

@@ -12,7 +12,7 @@ namespace GeenCompiler.Tokens {
             Token token = null;
             if(name[0] == '('){
                 token = new Token();
-                token.type = VariableType.ParenthesisOpen;
+                token.type = TokenType.ParenthesisOpen;
                 token.value = "(";
             }
             return token;

@@ -11,9 +11,9 @@ namespace GeenCompiler.Tokens {
             Token token = null;
             if(name[0] == '+'){
                 if(lastToken != null && //lastToken could be NULL!
-                (lastToken.type == VariableType.Variable || lastToken.type == VariableType.Number)) { //Binary operator condition
+                (lastToken.type == TokenType.Variable || lastToken.type == TokenType.Number)) { //Binary operator condition
                     token = new Token();
-                    token.type = VariableType.Add;
+                    token.type = TokenType.Add;
                     token.value = "+";
                 }
             }

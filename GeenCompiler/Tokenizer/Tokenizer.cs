@@ -33,13 +33,13 @@ namespace GeenCompiler.Tokens {
                         currentCol += token.Value.value.Length;
                         switch (token.Value.type)
                         {
-                            case VariableType.BracketOpen:
+                            case TokenType.BracketOpen:
                                 levelStack.Push(token.Value);
                                 break;
-                            case VariableType.BracketClose:
+                            case TokenType.BracketClose:
                                 {
                                     Token t = levelStack.Pop();
-                                    if (t.type != VariableType.BracketOpen)
+                                    if(t.type != TokenType.BracketOpen)
                                         errors.Push("unexpected " + token.Value.value + "on line " + token.Value.lineNumber);
                                     else
                                     {
@@ -48,14 +48,14 @@ namespace GeenCompiler.Tokens {
                                     }
                                     break;
                                 }
-                                
-                            case VariableType.ParenthesisOpen:
+
+                            case TokenType.ParenthesisOpen:
                                 levelStack.Push(token.Value);
                                 break;
-                            case VariableType.ParenthesisClose:
+                            case TokenType.ParenthesisClose:
                                 {
                                     Token t = levelStack.Pop();
-                                    if (t.type != VariableType.ParenthesisOpen)
+                                    if(t.type != TokenType.ParenthesisOpen)
                                         errors.Push("unexpected " + token.Value.value + "on line " + token.Value.lineNumber);
                                     else
                                     {

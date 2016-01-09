@@ -12,7 +12,7 @@ namespace GeenCompiler.Tokens {
                 Token token = null;
                 if(name[4] == ' ' || name[4] == '(') { //als is followed by a space or a (
                     token = new Token();
-                    token.type = VariableType.If;
+                    token.type = TokenType.If;
                     token.value = "als";
                 }
                 

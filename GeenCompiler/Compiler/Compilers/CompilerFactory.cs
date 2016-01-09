@@ -34,7 +34,7 @@ namespace GeenCompiler.Compiler.Compilers {
         public CompiledStatement CreateCompiledStatement(LinkedListNode<Token> currentToken) {
             foreach(var compiledStatement in _compilers) {
                 if(compiledStatement.isMatch(currentToken)) {
-                    return compiledStatement.clone();
+                        return compiledStatement.clone();
                 }
             }
 

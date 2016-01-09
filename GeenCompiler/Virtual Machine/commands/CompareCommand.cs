@@ -12,10 +12,10 @@ namespace GeenCompiler.Virtual_Machine {
             Variable leftVariable = vm.getVariable(node.Left);
             Variable rightVariable = vm.getVariable(node.Right);
 
-            if((leftVariable.Type == VariableType.Number && rightVariable.Type == VariableType.Number)) 
+            if(leftVariable.Type == VariableType.Number && rightVariable.Type == VariableType.Number) //values are parsable as numbers.
             {
-                int left = Int32.Parse(leftVariable.Value);
-                int right = Int32.Parse(rightVariable.Value);
+                int left = int.Parse(leftVariable.Value);
+                int right = int.Parse(rightVariable.Value);
 
                 switch(node.Name) {
                     case "AreEqual":
@@ -35,10 +35,12 @@ namespace GeenCompiler.Virtual_Machine {
                         break;
                 }
             }
+
+            //TODO: compare strings?
         }
 
         public override bool Match(string name) {
-            return name == "Divide";
+            return name == "AreEqual" || name == "IsSmaller" || name == "IsLarger" || name == "IsSmallerOrEqual" || name == "IsLargerOrEqual";
         }
     }
 }

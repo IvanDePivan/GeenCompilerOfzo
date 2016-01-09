@@ -19,15 +19,14 @@ namespace GeenCompiler.Compiler.Compilers
             //Compile left of +
             //var leftCompiled = CompilerFactory.Instance.CreateCompiledStatement(currentToken);
 
-
-            if (currentToken.Next.Next.Next.Value.type == VariableType.Endstatement)
+            //simple assignment
+            if(currentToken.Next.Next.Next.Value.type == TokenType.Endstatement)
             {
                 //Temp variable for right
-                if (rightToken.type == VariableType.Number)
+                if(rightToken.type == TokenType.Number)
                 {
                     Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, rightToken));
-                }
-                else if (rightToken.type == VariableType.Variable)
+                } else if(rightToken.type == TokenType.Variable)
                 {
                     Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.VARIABLETORETURN, rightName));
                 }
@@ -53,9 +52,9 @@ namespace GeenCompiler.Compiler.Compilers
         public override bool isMatch(LinkedListNode<Token> currentToken)
         {
             if(currentToken.Next != null) {
-                return (currentToken.Value.type == VariableType.Variable)
-                    && currentToken.Next.Value.type == VariableType.Assign
-                    && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+                return (currentToken.Value.type == TokenType.Variable)
+                    && currentToken.Next.Value.type == TokenType.Assign
+                    && (currentToken.Next.Next.Value.type == TokenType.Variable || currentToken.Next.Next.Value.type == TokenType.Number);
             } else {
                 return false;
             }

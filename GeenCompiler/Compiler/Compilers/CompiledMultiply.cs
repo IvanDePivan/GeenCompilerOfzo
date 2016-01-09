@@ -18,21 +18,21 @@ namespace GeenCompiler.Compiler.Compilers {
             //var leftCompiled = CompilerFactory.Instance.CreateCompiledStatement(currentToken);
 
             //Temp variable for left
-            if(leftToken.type == VariableType.Number) {
+            if(leftToken.type == TokenType.Number) {
                 leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, leftToken));
                 Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.RETURNTOVARIABLE, leftName));
             } 
 
             //Temp variable for right
-            if(rightToken.type == VariableType.Number) {
+            if(rightToken.type == TokenType.Number) {
                 rightName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.CONSTANTTORETURN, rightToken));
                 Compiled.Add(new DirectFunctionCallNode(DirectFunctionCallNode.RETURNTOVARIABLE, rightName));
             } 
             currentToken = currentToken.Next;
 
-            if(currentToken.Value.type == VariableType.Multiply){
+            if(currentToken.Value.type == TokenType.Multiply) {
                 Compiled.Add(new FunctionCallNode("Multiply", leftName, rightName));
             }
 
@@ -47,9 +47,9 @@ namespace GeenCompiler.Compiler.Compilers {
         public override bool isMatch(LinkedListNode<Token> currentToken) {
             // matched if current is a variable or number, next is a plus en third is also a number or variable.
             if(currentToken.Next != null) {
-                return (currentToken.Value.type == VariableType.Variable || currentToken.Value.type == VariableType.Number)
-                    && currentToken.Next.Value.type == VariableType.Multiply
-                    && (currentToken.Next.Next.Value.type == VariableType.Variable || currentToken.Next.Next.Value.type == VariableType.Number);
+                return (currentToken.Value.type == TokenType.Variable || currentToken.Value.type == TokenType.Number)
+                    && currentToken.Next.Value.type == TokenType.Multiply
+                    && (currentToken.Next.Next.Value.type == TokenType.Variable || currentToken.Next.Next.Value.type == TokenType.Number);
             } else {
                 return false;
             }

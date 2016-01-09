@@ -24,6 +24,7 @@ namespace GeenCompiler.Compiler {
                 Console.WriteLine(a.GetType());
                 a = a.Next;
             }
+
             return Compiled;
         }
     }

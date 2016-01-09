@@ -14,13 +14,13 @@ namespace GeenCompiler.Compiler
 
         public Variable(Token t)
         {
-            Type = t.type;
             Value = t.value;
+            defineType(t.value);
         }
 
         public Variable(string value)
         {
-            this.Type = VariableType.Variable;
+            defineType(value);
             Value = value;
         }
 
@@ -28,6 +28,16 @@ namespace GeenCompiler.Compiler
         {
             this.Type = vt;
             this.Value = value;
+        }
+
+        private void defineType(string value){
+            int i = 0;
+            if(int.TryParse(value, out i))
+                this.Type = VariableType.Number;
+            else if(value.Equals("false") || value.Equals("true"))
+                this.Type = VariableType.Boolean;
+            else
+                this.Type = VariableType.String;
         }
     }
 }
