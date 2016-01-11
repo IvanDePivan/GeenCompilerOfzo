@@ -19,8 +19,12 @@ namespace GeenCompiler.Tokens {
             tokenRecognizer.Add(new RecognizeBinaryDivideToken());
             tokenRecognizer.Add(new RecognizeNumberToken());
             tokenRecognizer.Add(new RecognizeEndstatementToken());
+            tokenRecognizer.Add(new RecognizeBooleanToken());
             tokenRecognizer.Add(new RecognizePrintToken());
             tokenRecognizer.Add(new RecognizeParenthesisOpenToken());
+            tokenRecognizer.Add(new RecognizeParenthesisCloseToken());
+            tokenRecognizer.Add(new RecognizeBracketOpenToken());
+            tokenRecognizer.Add(new RecognizeBracketCloseToken());
             tokenRecognizer.Add(new RecognizeParenthesisCloseToken());
             tokenRecognizer.Add(new RecognizeVariableToken()); // MUST BE LAST
             

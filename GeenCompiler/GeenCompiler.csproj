@@ -49,8 +49,9 @@
     <Compile Include="Compiler\Compilers\CompiledDivide.cs" />
     <Compile Include="Compiler\Compilers\CompiledMultiply.cs" />
     <Compile Include="Compiler\Compilers\CompiledStatement.cs" />
+    <Compile Include="Compiler\Compilers\CompiledIf.cs" />
     <Compile Include="Compiler\Compilers\CompiledWhile.cs" />
-    <Compile Include="Compiler\Compilers\CompilerFactory.cs" />
+    <Compile Include="Compiler\CompilerFactory.cs" />
     <Compile Include="Compiler\Compilers\CompiledPlus.cs" />
     <Compile Include="Compiler\NodeLinkedList.cs" />
     <Compile Include="Nodes\ConditionalJumpNode.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryDivideToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMinToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketCloseToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeIfToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisCloseToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisOpenToken.cs" />
@@ -76,7 +78,7 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeConditionToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeEndstatementToken.cs" />
-    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeIfToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBooleanToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeNumberToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeTokenStrategy.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeVariableToken.cs" />

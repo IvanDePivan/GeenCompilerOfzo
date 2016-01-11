@@ -18,6 +18,24 @@ namespace GeenCompiler.Compiler.Compilers {
             Token rightToken = currentToken.Value;
             string rightName = rightToken.value;
 
+            //Hier ben ik gebleven:
+            //Condition moet net als alles checken of de conditie uit meerdere stukken bestaat
+            //check dus of je links apart moet compilen en rechts ook.
+            //Misschien moet ook afgevangen worden als je per ongelijk iets probeerd te compilen dat alleen een variabele is.
+
+            //Statment length geeft een idee over complexiteit, maar niet over waar iets is.
+            //example:
+            // 1 < 3 + 5
+            // 3 + 3 > 2
+
+            //Controleer dus de positie van het compare teken?
+            int statementlength = getStatementLength(currentToken.Value);
+
+            if(statementlength > 3) {
+                //statement is composed of multiple parts.
+            }
+
+            leftName = compileOneSide(leftToken);
             if(leftToken.type == TokenType.Number) {
                 leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
@@ -53,6 +71,13 @@ namespace GeenCompiler.Compiler.Compilers {
             return Compiled;
         }
 
+        private string compileOneSide(Token token){
+            string name = CompiledStatement.getUniqueId();
+            Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", token.value));
+            Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", name));
+            return name;
+        }
+
         public override bool isMatch(LinkedListNode<Token> currentToken) {
             if(currentToken.Next != null) {
                 return (currentToken.Next.Value.type == TokenType.LargerOrEqualThan || currentToken.Next.Value.type == TokenType.Largerthan ||
@@ -62,6 +87,14 @@ namespace GeenCompiler.Compiler.Compilers {
                 return false;
             }
 
+        }
+
+        private int getStatementLength(Token token) {
+            int length = 0;
+            while(token.type != TokenType.ParenthesisClose && token.type != TokenType.Endstatement) {
+                length++;
+            }
+            return length;
         }
 
         public override CompiledStatement clone() {

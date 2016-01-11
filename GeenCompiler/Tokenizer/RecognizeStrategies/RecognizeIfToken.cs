@@ -10,7 +10,7 @@ namespace GeenCompiler.Tokens {
         public Token match(string name, Token lastToken) {
             if(name.StartsWith("als")) { //Meets starting condition
                 Token token = null;
-                if(name[4] == ' ' || name[4] == '(') { //als is followed by a space or a (
+                if(name[3] == ' ' || name[3] == '(') { //als is followed by a space or a (
                     token = new Token();
                     token.type = TokenType.If;
                     token.value = "als";
