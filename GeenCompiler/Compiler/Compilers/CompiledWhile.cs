@@ -4,25 +4,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GeenCompiler.Compiler.Nodes;
+using GeenCompiler.Tokens;
 
 namespace GeenCompiler.Compiler.Compilers {
-    public class CompiledWhile {
+    public class CompiledWhile : CompiledStatement {
         private NodeLinkedList compiledStatement;
-        private NodeLinkedList condition;
-        private NodeLinkedList body;
 
         public CompiledWhile() {
-            compiledStatement = new NodeLinkedList();
-            condition = new NodeLinkedList();
-            body = new NodeLinkedList();
 
-            var conditionalJumpNode = new ConditionalJumpNode(compiledStatement.Last, body.First);
-            var jumpBackNode = new JumpNode(compiledStatement.First);
+        }
 
-            compiledStatement.Add(condition);
-            compiledStatement.Add(conditionalJumpNode); // De body komt dus rechtstreeks na de conditionalJumpNode (dus op de .Next property)
-            compiledStatement.Add(body);
-            compiledStatement.Add(jumpBackNode);
+
+        public override NodeLinkedList compile(ref LinkedListNode<Token> currentToken) {
+            currentToken = currentToken.Next.Next;
+            CompiledStatement cs = CompilerFactory.Instance.CreateCompiledStatement(currentToken);
+            NodeLinkedList nll = cs.compile(ref currentToken);
+            Compiled.Add(nll);
+            currentToken = currentToken.Next;
+            int currentLvl = currentToken.Value.level;
+            currentToken = currentToken.Next;
+            CompiledStatement csbody = CompilerFactory.Instance.CreateCompiledStatement(currentToken);
+            NodeLinkedList body = csbody.compile(ref currentToken);
+            while(currentToken.Value.level > currentLvl) {
+                csbody = CompilerFactory.Instance.CreateCompiledStatement(currentToken);
+                body.Add(csbody.compile(ref currentToken));
+            }
+            var jumpNode = new JumpNode(nll.First);
+            var conditionalJumpNode = new ConditionalJumpNode(body.First, jumpNode.Next);
+            Compiled.Add(conditionalJumpNode);
+            Compiled.Add(body);
+            Compiled.Add(jumpNode);
+            conditionalJumpNode.NextOnFalse = Compiled.Last;
+            currentToken = currentToken.Next;
+
+            return Compiled;
+        }
+
+        public override CompiledStatement clone() {
+            return new CompiledWhile();
+        }
+
+        public override bool isMatch(LinkedListNode<Token> currentToken) {
+            return (currentToken.Value.type == TokenType.While);
         }
     }
 }

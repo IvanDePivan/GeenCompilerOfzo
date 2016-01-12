@@ -23,11 +23,13 @@ namespace GeenCompiler.Compiler.Compilers {
         private CompilerFactory() {
             _compilers = new List<CompiledStatement>();
             _compilers.Add(new CompiledPlus());
+            _compilers.Add(new CompiledPlusPlus());
             _compilers.Add(new CompiledMin());
             _compilers.Add(new CompiledDivide());
             _compilers.Add(new CompiledMultiply());
             _compilers.Add(new CompiledAssignment());
             _compilers.Add(new CompiledIf());
+            _compilers.Add(new CompiledWhile());
             _compilers.Add(new CompiledPrint());
             _compilers.Add(new CompiledCondition());
 

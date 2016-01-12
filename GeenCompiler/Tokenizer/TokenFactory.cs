@@ -11,7 +11,9 @@ namespace GeenCompiler.Tokens {
         public TokenFactory() {
             tokenRecognizer = new List<RecognizeTokenStrategy>();
             tokenRecognizer.Add(new RecognizeIfToken());
+            tokenRecognizer.Add(new RecognizeWhileToken());
             tokenRecognizer.Add(new RecognizeAssignToken());
+            tokenRecognizer.Add(new RecognizeUnaryPlusToken()); //Unary before Binary
             tokenRecognizer.Add(new RecognizeBinaryPlusToken());
             tokenRecognizer.Add(new RecognizeConditionToken());
             tokenRecognizer.Add(new RecognizeBinaryMinToken());

@@ -21,7 +21,11 @@ namespace GeenCompiler.Compiler {
             ActionNode a = Compiled.First;
             while (a != null)
             {
-                Console.WriteLine(a.GetType());
+                try{
+                    Console.Write(((DirectFunctionCallNode)a).Value + "-");
+                }catch(Exception e){}
+                    
+                Console.WriteLine(a.GetType() + " - ");
                 a = a.Next;
             }
 

@@ -10,6 +10,7 @@ namespace GeenCompiler.Tokens {
         Else,
         ElseIf,
         Add,
+        AddOne,
         Subtract,
         Assign,
         Equals,
@@ -29,6 +30,7 @@ namespace GeenCompiler.Tokens {
         ParenthesisOpen,
         ParenthesisClose,
         BracketOpen,
-        BracketClose
+        BracketClose,
+        While
     }
 }

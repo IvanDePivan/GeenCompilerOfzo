@@ -33,9 +33,11 @@ namespace GeenCompiler.Tokens {
                         currentCol += token.Value.value.Length;
                         switch (token.Value.type)
                         {
-                            case TokenType.BracketOpen:
-                                levelStack.Push(token.Value);
-                                break;
+                            case TokenType.BracketOpen: {
+                                    token.Value.level = levelStack.Count;
+                                    levelStack.Push(token.Value);
+                                    break;
+                                }
                             case TokenType.BracketClose:
                                 {
                                     Token t = levelStack.Pop();
@@ -45,13 +47,17 @@ namespace GeenCompiler.Tokens {
                                     {
                                         t.partner = token.Value;
                                         token.Value.partner = t;
+                                        token.Value.level = levelStack.Count;
                                     }
                                     break;
                                 }
 
-                            case TokenType.ParenthesisOpen:
+                            case TokenType.ParenthesisOpen: {
+                                token.Value.level = levelStack.Count;
                                 levelStack.Push(token.Value);
                                 break;
+                                }
+                                
                             case TokenType.ParenthesisClose:
                                 {
                                     Token t = levelStack.Pop();
@@ -61,11 +67,16 @@ namespace GeenCompiler.Tokens {
                                     {
                                         t.partner = token.Value;
                                         token.Value.partner = t;
+                                        token.Value.level = levelStack.Count;
                                     }
                                     break;
-                                }  
+                                }
+                            default: {
+                                token.Value.level = levelStack.Count;
+                                break;
+                                }
                         }
-                        token.Value.level = levelStack.Count;
+                        
                     }
                 }
                 currentLine++;

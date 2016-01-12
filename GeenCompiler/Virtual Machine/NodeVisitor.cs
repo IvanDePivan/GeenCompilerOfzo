@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeenCompiler.Tokens;
 
 namespace GeenCompiler.Virtual_Machine {
     public class NodeVisitor {
@@ -40,7 +41,16 @@ namespace GeenCompiler.Virtual_Machine {
 
         public void visit(ConditionalJumpNode cjn)
         {
-            throw new NotImplementedException();
+            if(vm.Return.Type == VariableType.Boolean) {
+                if(vm.Return.Value.Equals("False", StringComparison.OrdinalIgnoreCase)) {
+                    cjn.Next = cjn.NextOnFalse;
+                } else {
+                    cjn.Next = cjn.NextOnTrue;
+                }
+            } else {
+                //throw an exception
+                throw new Exception("Was geen boolean op die returnvalue ofwel?");
+            }
         }
 
         public void visit(FunctionCallNode fcn)
@@ -56,7 +66,7 @@ namespace GeenCompiler.Virtual_Machine {
 
 
         public void visit(JumpNode jumpNode) {
-            //devolgendenode = jumpNode.jump;
+            jumpNode.Next = jumpNode.jump;
         }
     }
 }

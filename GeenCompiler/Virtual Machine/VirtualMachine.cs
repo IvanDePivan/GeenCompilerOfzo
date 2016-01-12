@@ -28,7 +28,12 @@ namespace GeenCompiler.Virtual_Machine {
 
         public void setVariable(string key, Variable value)
         {
-            variables.Add(key, value);
+            if(variables.ContainsKey(key)) {
+                variables[key] = value;
+            } else {
+                variables.Add(key, value);
+            }
+            
         }
 
         public Variable getVariable(string key)

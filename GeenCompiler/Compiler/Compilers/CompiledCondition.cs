@@ -29,13 +29,13 @@ namespace GeenCompiler.Compiler.Compilers {
             // 3 + 3 > 2
 
             //Controleer dus de positie van het compare teken?
-            int statementlength = getStatementLength(currentToken.Value);
+            //int statementlength = getStatementLength(currentToken.Value);
 
-            if(statementlength > 3) {
-                //statement is composed of multiple parts.
-            }
+            //if(statementlength > 3) {
+            //    //statement is composed of multiple parts.
+            //}
 
-            leftName = compileOneSide(leftToken);
+            //leftName = compileOneSide(leftToken);
             if(leftToken.type == TokenType.Number) {
                 leftName = CompiledStatement.getUniqueId();
                 Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
@@ -44,7 +44,7 @@ namespace GeenCompiler.Compiler.Compilers {
 
             if(rightToken.type == TokenType.Number) {
                 rightName = CompiledStatement.getUniqueId();
-                Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", leftToken.value));
+                Compiled.Add(new DirectFunctionCallNode("ConstantToReturn", rightToken.value));
                 Compiled.Add(new DirectFunctionCallNode("ReturnToVariable", rightName));
             }
 

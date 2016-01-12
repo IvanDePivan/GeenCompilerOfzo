@@ -44,6 +44,7 @@
     <Compile Include="Compiler\Compiler.cs" />
     <Compile Include="Compiler\Compilers\CompiledAssignment.cs" />
     <Compile Include="Compiler\Compilers\CompiledCondition.cs" />
+    <Compile Include="Compiler\Compilers\CompiledPlusPlus.cs" />
     <Compile Include="Compiler\Compilers\CompiledPrint.cs" />
     <Compile Include="Compiler\Compilers\CompiledMin.cs" />
     <Compile Include="Compiler\Compilers\CompiledDivide.cs" />
@@ -69,13 +70,15 @@
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMultiplyToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryDivideToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryMinToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketCloseToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeWhileToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeIfToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisCloseToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBracketOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeParenthesisOpenToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizePrintToken.cs" />
-    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBinaryPlusToken.cs" />
+    <Compile Include="Tokenizer\RecognizeStrategies\RecognizeUnaryPlusToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeConditionToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeEndstatementToken.cs" />
     <Compile Include="Tokenizer\RecognizeStrategies\RecognizeBooleanToken.cs" />

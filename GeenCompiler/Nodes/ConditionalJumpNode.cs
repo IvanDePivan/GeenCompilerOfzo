@@ -15,6 +15,7 @@ namespace GeenCompiler.Compiler.Nodes {
         }
         public ActionNode NextOnFalse {
             get { return nextOnFalse; }
+            set { nextOnFalse = value; }
         }
 
         public ConditionalJumpNode(ActionNode trueNode, ActionNode falseNode) {
@@ -23,7 +24,7 @@ namespace GeenCompiler.Compiler.Nodes {
         }
 
         public override void accept(Virtual_Machine.NodeVisitor visitor) {
-            throw new NotImplementedException();
+            visitor.visit(this);
         }
     }
 }
